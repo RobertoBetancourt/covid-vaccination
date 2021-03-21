@@ -20,7 +20,8 @@ const useStyles = makeStyles({
     height: '100vh'
   },
   title: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center'
   }
 })
 
