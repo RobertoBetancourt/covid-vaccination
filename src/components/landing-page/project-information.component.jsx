@@ -61,7 +61,7 @@ const ProjectInformation = () => {
             <Typography className={`${classes.blackFont} ${classes.numbersTitle}`} variant='h4' component='h2'>
               Cifras
             </Typography>
-            <img src='img/numbers.png' className={classes.numbersImage} />
+            <img alt='cifras' src='img/numbers.png' className={classes.numbersImage} />
           </CardContent>
         </Card>
         <Card className={classes.card} variant='outlined'>
@@ -69,7 +69,7 @@ const ProjectInformation = () => {
             <Typography className={classes.blackFont} variant='h4' component='h2'>
               Gráficas
             </Typography>
-            <img src='img/graph.png' className={classes.graphImage} />
+            <img alt='grafica' src='img/graph.png' className={classes.graphImage} />
           </CardContent>
         </Card>
         <Card className={classes.card} variant='outlined'>
@@ -77,7 +77,7 @@ const ProjectInformation = () => {
             <Typography className={classes.blackFont} variant='h4' component='h2'>
               Tablas
             </Typography>
-            <img src='img/table.png' className={classes.tableImage} />
+            <img alt='tabla' src='img/table.png' className={classes.tableImage} />
           </CardContent>
         </Card>
       </Container>
