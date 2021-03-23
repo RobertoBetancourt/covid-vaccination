@@ -58,7 +58,7 @@ const ProjectInformation = () => {
       <Container maxWidth='md' className={classes.cardsContainer}>
         <Card className={classes.card} variant='outlined'>
           <CardContent>
-            <Typography className={[classes.blackFont, classes.numbersTitle]} variant='h4' component='h2'>
+            <Typography className={`${classes.blackFont} ${classes.numbersTitle}`} variant='h4' component='h2'>
               Cifras
             </Typography>
             <img src='img/numbers.png' className={classes.numbersImage} />
