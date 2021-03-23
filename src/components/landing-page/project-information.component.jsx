@@ -16,9 +16,13 @@ const useStyles = makeStyles((theme) => ({
   },
   numbersImage: {
     height: 250
+
   },
   graphImage: {
-    height: 250
+    paddingLeft: 17,
+    paddingRight: 17,
+    marginTop: 27,
+    width: 250
   },
   tableImage: {
     height: 250
@@ -55,7 +59,7 @@ const ProjectInformation = () => {
         <Card className={classes.card} variant='outlined'>
           <CardContent>
             <Typography className={[classes.blackFont, classes.numbersTitle]} variant='h4' component='h2'>
-              CIFRAS
+              Cifras
             </Typography>
             <img src='img/numbers.png' className={classes.numbersImage} />
           </CardContent>
@@ -63,7 +67,7 @@ const ProjectInformation = () => {
         <Card className={classes.card} variant='outlined'>
           <CardContent>
             <Typography className={classes.blackFont} variant='h4' component='h2'>
-              GRÁFICAS
+              Gráficas
             </Typography>
             <img src='img/graph.png' className={classes.graphImage} />
           </CardContent>
@@ -71,7 +75,7 @@ const ProjectInformation = () => {
         <Card className={classes.card} variant='outlined'>
           <CardContent>
             <Typography className={classes.blackFont} variant='h4' component='h2'>
-              TABLAS
+              Tablas
             </Typography>
             <img src='img/table.png' className={classes.tableImage} />
           </CardContent>
