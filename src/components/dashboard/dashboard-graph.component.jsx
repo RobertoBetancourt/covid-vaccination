@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 
 const isMainCountry = (countryToSearch) => {
   const mainCountries = ['Saudi Arabia', 'Brazil', 'China', 'France', 'Japan', 'South Africa', 'Australia', 'Canada', 'India', 'Italy', 'Argentina', 'Mexico', 'United Kingdom', 'United States', 'South Korea', 'Turkey']
-  console.log(countryToSearch)
+
   if (mainCountries.includes(countryToSearch)) {
     return true
   } else {
@@ -53,7 +53,7 @@ const MyResponsiveLine = ({ data }) => {
   }
 
   return (
-    <div style={{ height: 600 }} className='App'>
+    <div style={{ height: 600 }}>
       <ResponsiveLine
         data={newData}
         margin={{ top: 20, right: 120, bottom: 100, left: 90 }}
