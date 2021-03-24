@@ -47,7 +47,7 @@ const ProjectInformation = () => {
     <div>
       <Container maxWidth='md' className={classes.informationContainer}>
         <Typography variant='h3' component='p' className={classes.informationContent}>
-          Este proyecto está enfocado en proveer información útil, veraz y actualizada del proceso de vacunación en los diferentes países de América Latina.
+          Este proyecto está enfocado en proveer información útil, veraz y actualizada del proceso de vacunación en diferentes países alrededor del mundo.
         </Typography>
       </Container>
       <Container maxWidth='md' className={classes.informationContainer}>
@@ -56,14 +56,6 @@ const ProjectInformation = () => {
         </Typography>
       </Container>
       <Container maxWidth='md' className={classes.cardsContainer}>
-        <Card className={classes.card} variant='outlined'>
-          <CardContent>
-            <Typography className={`${classes.blackFont} ${classes.numbersTitle}`} variant='h4' component='h2'>
-              Cifras
-            </Typography>
-            <img alt='cifras' src='img/numbers.png' className={classes.numbersImage} />
-          </CardContent>
-        </Card>
         <Card className={classes.card} variant='outlined'>
           <CardContent>
             <Typography className={classes.blackFont} variant='h4' component='h2'>
@@ -75,9 +67,17 @@ const ProjectInformation = () => {
         <Card className={classes.card} variant='outlined'>
           <CardContent>
             <Typography className={classes.blackFont} variant='h4' component='h2'>
-              Tablas
+              Mapas
             </Typography>
-            <img alt='tabla' src='img/table.png' className={classes.tableImage} />
+            <img alt='tabla' src='img/map.png' className={classes.graphImage} />
+          </CardContent>
+        </Card>
+        <Card className={classes.card} variant='outlined'>
+          <CardContent>
+            <Typography className={`${classes.blackFont} ${classes.numbersTitle}`} variant='h4' component='h2'>
+              Análisis de datos
+            </Typography>
+            <img alt='cifras' src='img/table.png' className={classes.numbersImage} />
           </CardContent>
         </Card>
       </Container>

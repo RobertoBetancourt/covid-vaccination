@@ -2,15 +2,17 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Container, Typography } from '@material-ui/core'
 import DashboardGraph from './dashboard-graph.component'
+import Menu from '../menu/menu.component'
 
 const useStyles = makeStyles({
   container: {
-    height: '100%',
-    width: '100%',
+    // height: '100%',
+    // width: '100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: 'white'
+    marginTop: 50,
+    color: '#000A77'
   },
   background: {
     backgroundImage: 'url(/img/landing_page.jpg)',
@@ -23,6 +25,9 @@ const useStyles = makeStyles({
   title: {
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+  menu: {
+    paddingTop: 50
   }
 })
 
@@ -30,7 +35,10 @@ const Dashboard = () => {
   const classes = useStyles()
 
   return (
-    <div className={classes.background}>
+    <div>
+      <Container className={classes.menu}>
+        <Menu color='white' />
+      </Container>
       <Container className={classes.container}>
         <Typography variant='h1' className={classes.title}>
           Vacunación COVID-19
