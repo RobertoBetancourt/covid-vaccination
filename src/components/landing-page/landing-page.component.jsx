@@ -52,7 +52,7 @@ const LandingPage = () => {
       <div className={classes.backgroundImage}>
         <Container className={classes.imageContainer}>
           <Typography variant='h1' className={classes.title}>
-            Vacunación COVID-19
+            Acerca del proyecto
           </Typography>
         </Container>
       </div>
