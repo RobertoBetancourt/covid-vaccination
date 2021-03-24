@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Container, Typography } from '@material-ui/core'
+import DashboardGraph from './dashboard-graph.component'
 
 const useStyles = makeStyles({
   container: {
@@ -25,17 +26,19 @@ const useStyles = makeStyles({
   }
 })
 
-const LandingPage = () => {
+const Dashboard = () => {
   const classes = useStyles()
+
   return (
     <div className={classes.background}>
       <Container className={classes.container}>
         <Typography variant='h1' className={classes.title}>
-          Acerca del proyecto
+          Vacunación COVID-19
         </Typography>
       </Container>
+      <DashboardGraph />
     </div>
   )
 }
 
-export default LandingPage
+export default Dashboard
