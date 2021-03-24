@@ -25,7 +25,7 @@ describe('Landing page', () => {
     act(() => {
       render(<LandingPage />, container)
     })
-    expect(screen.getByText('Vacunación COVID-19')).toBeInTheDocument()
+    expect(screen.getByText('Acerca del proyecto')).toBeInTheDocument()
   })
 
   // it('Form throwing errors', () => {
