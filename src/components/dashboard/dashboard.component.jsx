@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Container, Typography } from '@material-ui/core'
 import DashboardGraph from './dashboard-graph.component'
-import Menu from '../menu/menu.component'
+import SimpleMenu from '../menu/menu.component'
 
 const useStyles = makeStyles({
   container: {
@@ -37,7 +37,7 @@ const Dashboard = () => {
   return (
     <div>
       <Container className={classes.menu}>
-        <Menu color='white' />
+        <SimpleMenu />
       </Container>
       <Container className={classes.container}>
         <Typography variant='h1' className={classes.title}>

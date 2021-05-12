@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Container, Typography } from '@material-ui/core'
 import LandingPageForm from './landing-page-form.component'
 import ProjectInformation from './project-information.component'
-import Menu from '../menu/menu.component'
+import SimpleMenu from '../menu/menu.component'
 
 const useStyles = makeStyles((theme) => ({
   imageContainer: {
@@ -55,7 +55,7 @@ const LandingPage = () => {
     <div>
       <div className={classes.backgroundImage}>
         <Container className={classes.menu}>
-          <Menu light />
+          <SimpleMenu light />
         </Container>
         <Container className={classes.imageContainer}>
           <Typography variant='h1' className={classes.title}>
