@@ -8,8 +8,13 @@ import Covid19 from  './components/dashboard/Covid19'
 function App () {
   return (
     <div>
-     
-        <Covid19 />
+     <Router>
+        <Switch>
+          <Route exact path='/' component={Dashboard} />
+          <Route exact path='/acerca_de' component={LandingPage} />
+        </Switch>
+      </Router>
+      <Covid19/>
      
     </div>
   
