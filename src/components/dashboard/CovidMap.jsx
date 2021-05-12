@@ -18,7 +18,7 @@ const CovidMap = ({ countries }) => {
   };
 
   return (
-    <LeafletMap style={{ height: "40vh" }} zoom={2} center={[20, 60]}>
+    <LeafletMap style={{ height: "80vh" }} zoom={2} center={[20, 60]}>
       <GeoJSON
         style={mapStyle}
         data={countries}

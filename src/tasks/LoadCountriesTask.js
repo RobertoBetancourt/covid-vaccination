@@ -5,7 +5,7 @@ import { features } from "../data/countries.json";
 
 class LoadCountryTask {
   covidUrl =
-    "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv";
+    "";
 
   setState = null;
 

@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Loading from "./Loading";
 import CovidMap from "./CovidMap";
 import LoadCountriesTask from "../../tasks/LoadCountriesTask"
-import Legend from "./Legend";
 
 
 const Covid19 = () => {
