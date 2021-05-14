@@ -1,6 +1,5 @@
 import React from 'react'
-import { withStyles, makeStyles, Button, Container, TextField, Typography } from '@material-ui/core'
-import { DataGrid } from '@material-ui/data-grid'
+import { withStyles, makeStyles, Button, Typography } from '@material-ui/core'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -133,7 +132,7 @@ const SelectCountriesTable = (props) => {
                             variant='outlined'
                           >
                           Ocultar
-                        </Button>
+                          </Button>
                         : <Button
                             color='primary'
                             onClick={() => onClickCountry(row.id, !row.active)}
@@ -141,7 +140,7 @@ const SelectCountriesTable = (props) => {
                             variant='outlined'
                           >
                           Mostrar
-                        </Button>
+                          </Button>
                   }
                 </StyledTableCell>
               </StyledTableRow>

@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import SignInForm from './sign-in-form.component'
 import SignUpForm from './sign-up-form.component'
 import SimpleMenu from '../menu/menu.component'
-import axios from 'axios'
+// import axios from 'axios'
 import Alert from '@material-ui/lab/Alert'
 
 const useStyles = makeStyles((theme) => ({
@@ -78,7 +78,7 @@ const SignInPage = () => {
                     ¿No tienes una cuenta? Regístrate
                   </Button>
                 </div>
-              </>
+                </>
               : <>
                 <Typography variant='h4' className={classes.signInLabel}>
                   Regístrate
@@ -93,7 +93,7 @@ const SignInPage = () => {
                     ¿Ya tienes una cuenta? Inicia sesión
                   </Button>
                 </div>
-              </>
+                </>
           }
 
         </Container>

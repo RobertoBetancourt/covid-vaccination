@@ -1,9 +1,8 @@
 import React from 'react'
 import SelectCountriesTable from './select-countries-table.component'
 import SimpleMenu from '../menu/menu.component'
-import { withStyles, makeStyles, Button, Container, TextField, Typography } from '@material-ui/core'
+import { makeStyles, Container } from '@material-ui/core'
 import axios from 'axios'
-import { Redirect } from 'react-router'
 
 const useStyles = makeStyles((theme) => ({
   container: {

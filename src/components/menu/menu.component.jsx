@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
+// import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import { Link, Redirect } from 'react-router-dom'
@@ -61,7 +61,7 @@ const SimpleMenu = (props) => {
             ? <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
             : <Link to='/iniciar_sesion'>
               <MenuItem onClick={handleClose}>Iniciar sesión</MenuItem>
-              </Link>
+            </Link>
         }
       </Menu>
     </div>

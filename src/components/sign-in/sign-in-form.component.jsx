@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { makeStyles, Button, Container, TextField, Typography } from '@material-ui/core'
-import ConfirmationDialog from '../utils/confirmation-dialog.component'
+// import ConfirmationDialog from '../utils/confirmation-dialog.component'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import Alert from '@material-ui/lab/Alert'
@@ -135,7 +135,7 @@ const SignInForm = () => {
                   color='primary'
                 >
                 Iniciar sesión
-                </Button>
+              </Button>
           }
 
         </form>
