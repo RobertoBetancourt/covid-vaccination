@@ -61,6 +61,7 @@ const SignUpForm = (props) => {
         }
       })
       .catch((error) => {
+        setLoading(false)
         console.log(error)
         setError('Ocurrió un error inesperado. Por favor intente nuevamente.')
       })
@@ -140,7 +141,7 @@ const SignUpForm = (props) => {
                   color='primary'
                 >
                 Regístrate
-              </Button>
+                </Button>
           }
         </form>
       </Container>
