@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Container, Typography } from '@material-ui/core'
 import { ResponsiveLine } from '@nivo/line'
 // import { boolean } from '@storybook/addon-knobs'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const useStyles = makeStyles({
   container: {
@@ -10,6 +11,11 @@ const useStyles = makeStyles({
   },
   title: {
     textAlign: 'center'
+  },
+  loading: {
+    marginTop: 50,
+    display: 'flex',
+    justifyContent: 'center'
   }
 })
 
@@ -129,16 +135,19 @@ const MyResponsiveLine = ({ data }) => {
 const DashboardGraph = () => {
   const classes = useStyles()
   const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
 
   // The empty deps array [] means this useEffect will run once, similar to componentDidMount()
   useEffect(() => {
+    setLoading(true)
     fetch('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json')
       .then(res => res.json())
       .then(
         (result) => {
           setItems(result)
+          setLoading(false)
           setIsLoaded(true)
         },
         // Note: it is important to handle errors here
@@ -157,7 +166,13 @@ const DashboardGraph = () => {
         Número de personas vacunadas por país
       </Typography>
       {
-        isLoaded && !error &&
+        loading &&
+          <div className={classes.loading}>
+            <CircularProgress />
+          </div>
+      }
+      {
+        isLoaded && !error && !loading &&
           <MyResponsiveLine data={items} />
       }
     </Container>

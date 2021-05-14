@@ -3,6 +3,9 @@ import { useForm } from 'react-hook-form'
 import { makeStyles, Button, Container, TextField, Typography } from '@material-ui/core'
 import ConfirmationDialog from '../utils/confirmation-dialog.component'
 import { Redirect } from 'react-router-dom'
+import axios from 'axios'
+import Alert from '@material-ui/lab/Alert'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const useStyles = makeStyles((theme) => ({
   informationContent: {
@@ -30,23 +33,50 @@ const useStyles = makeStyles((theme) => ({
 const SignInForm = () => {
   const classes = useStyles()
   const { register, errors, handleSubmit } = useForm()
-  const [open, setOpen] = React.useState(false)
+  // const [open, setOpen] = React.useState(false)
   const [isSignedIn, setIsSignedIn] = React.useState(false)
+  const [error, setError] = React.useState('')
+  const [loading, setLoading] = React.useState(false)
 
-  const handleClickOpen = () => {
-    setIsSignedIn(true)
+  // const handleClickOpen = () => {
+  //   setIsSignedIn(true)
+  // }
+
+  const onSubmit = async (data) => {
+    // console.log('data', data)
+    setLoading(true)
+    const input = {
+      mail: data.email,
+      password: data.password
+    }
+
+    console.log(input)
+
+    axios.post('http://35.239.182.84:3001/login', input)
+      .then(res => {
+        const token = res.data?.token
+        localStorage.setItem('token', token)
+        window.dispatchEvent(new Event('storage'))
+        // console.log(res)
+        // console.log(res.data)
+        setIsSignedIn(true)
+        setError('')
+      })
+      .catch(error => {
+        setLoading(false)
+        if (error.response.status === 401) {
+          setError('El correo o la contraseña son incorrectos. Intente nuevamente')
+        } else {
+          setError('Ocurrió un error inesperado. Por favor intente nuevamente.')
+        }
+      })
   }
 
-  const onSubmit = (data) => {
-    console.log('data', data)
-    handleClickOpen()
-  }
-
-  const informationDialog = {
-    title: 'Información registrada exitosamente',
-    content: 'Estaremos en contacto contigo para brindarte información del proyecto.',
-    button: 'Cerrar'
-  }
+  // const informationDialog = {
+  //   title: 'Información registrada exitosamente',
+  //   content: 'Estaremos en contacto contigo para brindarte información del proyecto.',
+  //   button: 'Cerrar'
+  // }
 
   if (isSignedIn) {
     return <Redirect to='/' />
@@ -54,6 +84,10 @@ const SignInForm = () => {
 
   return (
     <Container maxWidth='md' className={classes.contactContainer}>
+      {
+        error.length > 0 &&
+          <Alert severity='error'>{error}</Alert>
+      }
       <Container maxWidth='sm'>
         <form>
           <div className={classes.informationField}>
@@ -90,16 +124,20 @@ const SignInForm = () => {
               )}
             </div>
           </div>
+          {
+            loading
+              ? <CircularProgress />
+              : <Button
+                  onClick={handleSubmit(onSubmit)}
+                  style={{ fontSize: 20, width: '100%' }}
+                  variant='contained'
+                  size='large'
+                  color='primary'
+                >
+                Iniciar sesión
+                </Button>
+          }
 
-          <Button
-            onClick={handleSubmit(onSubmit)}
-            style={{ fontSize: 20, width: '100%' }}
-            variant='contained'
-            size='large'
-            color='primary'
-          >
-            Iniciar sesión
-          </Button>
         </form>
       </Container>
       {/* <ConfirmationDialog
