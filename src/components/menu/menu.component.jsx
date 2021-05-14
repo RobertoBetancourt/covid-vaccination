@@ -29,7 +29,7 @@ const SimpleMenu = (props) => {
 
   const userIsSignedIn = localStorage.getItem('token')
 
-  if (isSignedOut) {
+  if (isSignedOut && window.location.pathname !== '/') {
     return <Redirect to='/' />
   }
 
@@ -61,7 +61,7 @@ const SimpleMenu = (props) => {
             ? <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
             : <Link to='/iniciar_sesion'>
               <MenuItem onClick={handleClose}>Iniciar sesión</MenuItem>
-            </Link>
+              </Link>
         }
       </Menu>
     </div>

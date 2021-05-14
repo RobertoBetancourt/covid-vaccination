@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { Alert } from '@material-ui/lab'
+import axios from 'axios'
 // import Typography from '@material-ui/core/Typography';
 
 const StyledTableCell = withStyles((theme) => ({
@@ -55,11 +56,32 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const SelectCountriesTable = (props) => {
-  const { data, userIsSignedIn } = props
+  const { data, userIsSignedIn, setCountriesUpdated } = props
 
   // console.log(data)
   const classes = useStyles()
   const rows = data || []
+
+  const onClickCountry = (id, newState) => {
+    const token = localStorage.getItem('token')
+
+    const input = {
+      active: newState,
+      token: token
+    }
+
+    axios.post(`http://35.239.182.84:3001/country/${id}`, input)
+      .then(res => {
+        console.log(res)
+        setCountriesUpdated((prevState) => {
+          const newState = prevState + 1
+          return newState
+        })
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
 
   if (rows.length === 0) {
     return (
@@ -103,11 +125,23 @@ const SelectCountriesTable = (props) => {
                 <StyledTableCell align='center'>{row.name}</StyledTableCell>
                 <StyledTableCell align='center'>
                   {
-                    // userIsSignedIn
                       row.active === true
-                        ? <Button color='secondary' disabled={!userIsSignedIn}>Ocultar</Button>
-                        : <Button color='primary' disabled={!userIsSignedIn}>Mostrar</Button>
-                      // : 'Inicia sesión para mostrar u ocultar'
+                        ? <Button
+                            color='secondary'
+                            onClick={() => onClickCountry(row.id, !row.active)}
+                            disabled={!userIsSignedIn}
+                            variant='outlined'
+                          >
+                          Ocultar
+                        </Button>
+                        : <Button
+                            color='primary'
+                            onClick={() => onClickCountry(row.id, !row.active)}
+                            disabled={!userIsSignedIn}
+                            variant='outlined'
+                          >
+                          Mostrar
+                        </Button>
                   }
                 </StyledTableCell>
               </StyledTableRow>

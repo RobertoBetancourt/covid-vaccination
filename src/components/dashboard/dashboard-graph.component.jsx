@@ -19,21 +19,21 @@ const useStyles = makeStyles({
   }
 })
 
-const isMainCountry = (countryToSearch) => {
-  const mainCountries = ['Saudi Arabia', 'Brazil', 'China', 'France', 'Japan', 'South Africa', 'Australia', 'Canada', 'India', 'Italy', 'Argentina', 'Mexico', 'United Kingdom', 'United States', 'South Korea', 'Turkey']
+// const isMainCountry = (countryToSearch) => {
+//   const mainCountries = ['Saudi Arabia', 'Brazil', 'China', 'France', 'Japan', 'South Africa', 'Australia', 'Canada', 'India', 'Italy', 'Argentina', 'Mexico', 'United Kingdom', 'United States', 'South Korea', 'Turkey']
 
-  if (mainCountries.includes(countryToSearch)) {
-    return true
-  } else {
-    return false
-  }
-}
+//   if (mainCountries.includes(countryToSearch)) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
 
-const MyResponsiveLine = ({ data }) => {
+const MyResponsiveLine = ({ data, countries }) => {
   const newData = []
 
   for (let i = 0; i < data.length; i++) {
-    if (isMainCountry(data[i].country)) {
+    if (countries.includes(data[i].country)) {
       const tempData = []
       let tempObj = {}
       let tempDataObj = {}
@@ -132,22 +132,23 @@ const MyResponsiveLine = ({ data }) => {
   )
 }
 
-const DashboardGraph = () => {
+const DashboardGraph = (props) => {
+  const { countries } = props
   const classes = useStyles()
   const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
 
   // The empty deps array [] means this useEffect will run once, similar to componentDidMount()
   useEffect(() => {
-    setLoading(true)
+    // setLoading(true)
     fetch('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json')
       .then(res => res.json())
       .then(
         (result) => {
           setItems(result)
-          setLoading(false)
+          // setLoading(false)
           setIsLoaded(true)
         },
         // Note: it is important to handle errors here
@@ -166,14 +167,8 @@ const DashboardGraph = () => {
         Número de personas vacunadas por país
       </Typography>
       {
-        loading &&
-          <div className={classes.loading}>
-            <CircularProgress />
-          </div>
-      }
-      {
-        isLoaded && !error && !loading &&
-          <MyResponsiveLine data={items} />
+        isLoaded && !error &&
+          <MyResponsiveLine data={items} countries={countries} />
       }
     </Container>
   )
