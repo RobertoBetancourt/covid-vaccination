@@ -20,19 +20,19 @@ afterEach(() => {
   container = null
 })
 
-describe('Landing page', () => {
-  it('Renders title correctly', () => {
-    act(() => {
-      render(<LandingPage />, container)
-    })
-    expect(screen.getByText('Acerca del proyecto')).toBeInTheDocument()
-  })
+// describe('Landing page', () => {
+//   it('Renders title correctly', () => {
+//     act(() => {
+//       render(<LandingPage />, container)
+//     })
+//     expect(screen.getByText('Acerca del proyecto')).toBeInTheDocument()
+//   })
 
-  // it('Form throwing errors', () => {
-  //   act(() => {
-  //     const landingPageForm = render(<LandingPageForm />, container)
-  //     const nameInput = landingPageForm.container.querySelector('#name')
-  //     console.log(nameInput)
-  //   })
-  // })
-})
+//   // it('Form throwing errors', () => {
+//   //   act(() => {
+//   //     const landingPageForm = render(<LandingPageForm />, container)
+//   //     const nameInput = landingPageForm.container.querySelector('#name')
+//   //     console.log(nameInput)
+//   //   })
+//   // })
+// })
