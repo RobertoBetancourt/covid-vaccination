@@ -71,7 +71,7 @@ const SelectCountriesTable = (props) => {
 
     console.log(input)
 
-    axios.post(`http://localhost:8000/country/${id}`, input)
+    axios.post(`http://172.104.180.144:8000/country/${id}`, input)
       .then(res => {
         console.log(res)
         setCountriesUpdated((prevState) => {
@@ -135,7 +135,7 @@ const SelectCountriesTable = (props) => {
                             variant='outlined'
                           >
                           Ocultar
-                          </Button>
+                        </Button>
                         : <Button
                             color='primary'
                             onClick={() => onClickCountry(row.id, !row.active)}
@@ -143,7 +143,7 @@ const SelectCountriesTable = (props) => {
                             variant='outlined'
                           >
                           Mostrar
-                          </Button>
+                        </Button>
                   }
                 </StyledTableCell>
               </StyledTableRow>

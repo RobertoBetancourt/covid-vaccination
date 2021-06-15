@@ -65,6 +65,10 @@ const useStyles = makeStyles((theme) => ({
   continentContainer: {
     display: 'flex',
     justifyContent: 'space-between'
+  },
+  graphImage: {
+    marginTop: 20,
+    width: 800
   }
 }))
 
@@ -152,7 +156,7 @@ const ContinentInformation = (props) => {
             </Typography>
           </div>
           <div>
-            <img alt='grafica' src={`img/${continentInformation[continent].img}`} className={classes.graphImage} />
+            <img alt='continente' src={`img/${continentInformation[continent].img}`} />
           </div>
         </div>
       </CardContent>
@@ -198,6 +202,14 @@ const CasesInformation = () => {
         {
           continent &&
             <ContinentInformation continent={continent} />
+
+        }
+        {
+          !continent &&
+            <div>
+              <img alt='continents' src='img/Continents.png' className={classes.graphImage} />
+            </div>
+
         }
       </Container>
     </>

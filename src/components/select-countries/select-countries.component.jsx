@@ -20,7 +20,7 @@ const SelectCountries = () => {
   const userIsSignedIn = localStorage.getItem('token')
 
   React.useEffect(() => {
-    const apiUrl = 'http://localhost:8000/country/'
+    const apiUrl = 'http://172.104.180.144:8000/country/'
     axios.get(apiUrl)
       .then(res => {
         console.log(res)
@@ -32,7 +32,7 @@ const SelectCountries = () => {
 
   React.useEffect(() => {
     console.log('Llamando a localhost:8000/country/')
-    const apiUrl = 'http://localhost:8000/country/'
+    const apiUrl = 'http://172.104.180.144:8000/country/'
     axios.get(apiUrl)
       .then(res => {
         console.log(' localhost:8000/country/ res:')

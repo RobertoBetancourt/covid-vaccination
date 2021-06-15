@@ -51,7 +51,7 @@ const SignUpForm = (props) => {
       password: data.password
     }
 
-    axios.post('http://localhost:8000/register', input)
+    axios.post('http://172.104.180.144:8000/register', input)
       .then(res => {
         console.log(res)
         if (res.data?.user?.id) {
@@ -141,7 +141,7 @@ const SignUpForm = (props) => {
                   color='primary'
                 >
                 Regístrate
-                </Button>
+              </Button>
           }
         </form>
       </Container>
