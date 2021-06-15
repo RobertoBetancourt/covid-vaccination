@@ -143,7 +143,7 @@ const DashboardGraph = (props) => {
   // The empty deps array [] means this useEffect will run once, similar to componentDidMount()
   useEffect(() => {
     // setLoading(true)
-    fetch('http://localhost:8000/country/all')
+    fetch('http://172.104.180.144:8000/country/all')
       .then(res => res.json())
       .then(
         (result) => {
