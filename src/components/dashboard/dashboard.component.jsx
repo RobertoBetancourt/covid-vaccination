@@ -52,11 +52,11 @@ const Dashboard = () => {
 
   React.useEffect(() => {
     setLoading(true)
-    const apiUrl = 'http://35.239.182.84:3001/country'
+    const apiUrl = 'http://localhost:8000/country/'
     axios.get(apiUrl)
       .then(res => {
         // console.log(res.data.contries)
-        getNameOfCountries(res.data.contries)
+        getNameOfCountries(res.data.data)
       }).catch(error => {
         setLoading(false)
         console.log(error)
