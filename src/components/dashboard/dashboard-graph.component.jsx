@@ -143,11 +143,12 @@ const DashboardGraph = (props) => {
   // The empty deps array [] means this useEffect will run once, similar to componentDidMount()
   useEffect(() => {
     // setLoading(true)
-    fetch('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json')
+    fetch('http://localhost:8000/country/all')
       .then(res => res.json())
       .then(
         (result) => {
-          setItems(result)
+          console.log(result)
+          setItems(result.data)
           // setLoading(false)
           setIsLoaded(true)
         },
