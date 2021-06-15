@@ -50,9 +50,7 @@ const SignInForm = () => {
       password: data.password
     }
 
-    console.log(input)
-
-    axios.post('http://35.239.182.84:3001/login', input)
+    axios.post('http://localhost:8000/login', input)
       .then(res => {
         const token = res.data?.token
         localStorage.setItem('token', token)
