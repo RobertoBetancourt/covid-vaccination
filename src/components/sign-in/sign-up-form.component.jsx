@@ -50,8 +50,8 @@ const SignUpForm = (props) => {
       mail: data.email,
       password: data.password
     }
-    console.log(input)
-    axios.post('http://35.239.182.84:3001/register', input)
+
+    axios.post('http://localhost:8000/register', input)
       .then(res => {
         console.log(res)
         if (res.data?.user?.id) {
@@ -141,7 +141,7 @@ const SignUpForm = (props) => {
                   color='primary'
                 >
                 Regístrate
-              </Button>
+                </Button>
           }
         </form>
       </Container>

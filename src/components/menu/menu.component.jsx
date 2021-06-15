@@ -56,12 +56,15 @@ const SimpleMenu = (props) => {
         <Link to='/seleccionar_paises'>
           <MenuItem onClick={handleClose}>Países en gráfica</MenuItem>
         </Link>
+        <Link to='/informacion_casos'>
+          <MenuItem onClick={handleClose}>Información de casos</MenuItem>
+        </Link>
         {
           userIsSignedIn?.length > 0
             ? <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
             : <Link to='/iniciar_sesion'>
               <MenuItem onClick={handleClose}>Iniciar sesión</MenuItem>
-            </Link>
+              </Link>
         }
       </Menu>
     </div>

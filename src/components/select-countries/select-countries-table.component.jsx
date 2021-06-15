@@ -69,10 +69,13 @@ const SelectCountriesTable = (props) => {
       token: token
     }
 
-    axios.post(`http://35.239.182.84:3001/country/${id}`, input)
+    console.log(input)
+
+    axios.post(`http://localhost:8000/country/${id}`, input)
       .then(res => {
         console.log(res)
         setCountriesUpdated((prevState) => {
+          console.log('Actualizando paises')
           const newState = prevState + 1
           return newState
         })
